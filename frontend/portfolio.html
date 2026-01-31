@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work - hijo Electricity</title>
+    <link rel="icon" href="images/he-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <img src="images/logo.png" alt="hijo Electricity Logo" onerror="this.style.display='none'">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Admin</a></li>
+                </ul>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="ar">AR</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Work</h1>
+            <p>Explore some of our recent projects and see the quality of work we deliver.</p>
+        </div>
+    </section>
+
+    <section class="portfolio-section">
+        <div class="container">
+            <div id="loading" class="loading">Loading projects...</div>
+            <div id="projects-grid" class="projects-grid"></div>
+            <div id="no-projects" class="no-projects" style="display: none;">
+                <p>No projects available at the moment.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="hijo Electricity" onerror="this.style.display='none'">
+                        <h3>hijo Electricity</h3>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>hijoelectric@gmail.com</li>
+                        <li>00966545787952</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 hijo Electricity. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script>
+        const currentLang = localStorage.getItem('language') || 'en';
+
+        async function loadProjects() {
+            const loading = document.getElementById('loading');
+            const projectsGrid = document.getElementById('projects-grid');
+            const noProjects = document.getElementById('no-projects');
+
+            try {
+                const projects = await API.projects.getAll();
+
+                loading.style.display = 'none';
+
+                if (projects.length === 0) {
+                    noProjects.style.display = 'block';
+                    return;
+                }
+
+                projects.forEach(project => {
+                    const title = currentLang === 'ar' && project.titleAr ? project.titleAr : project.titleEn;
+                    const description = currentLang === 'ar' && project.descriptionAr ? project.descriptionAr : project.descriptionEn;
+                    const imageUrl = `${API.BASE_URL}${project.image}`;
+
+                    const card = document.createElement('div');
+                    card.className = 'project-card';
+                    card.innerHTML = `
+                        <div class="project-image">
+                            <img src="${imageUrl}" alt="${title}" onerror="this.src='images/placeholder.jpg'">
+                        </div>
+                        <div class="project-info">
+                            <h3>${title}</h3>
+                            <p>${description}</p>
+                        </div>
+                    `;
+                    projectsGrid.appendChild(card);
+                });
+            } catch (error) {
+                loading.textContent = 'Error loading projects. Please try again later.';
+                console.error('Error:', error);
+            }
+        }
+
+        loadProjects();
+    </script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

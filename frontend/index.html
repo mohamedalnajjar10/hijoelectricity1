@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hijo Electricity - Professional Electrical Solutions</title>
+    <link rel="icon" href="images/he-logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/i18n.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <img
+              src="images/he-logo.svg"
+              alt="hijo Electricity Logo"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+          <ul class="nav-menu">
+            <li>
+              <a href="#home" class="nav-link active" data-i18n="home">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="nav-link" data-i18n="about">About</a>
+            </li>
+            <li>
+              <a href="#services" class="nav-link" data-i18n="services"
+                >Services</a
+              >
+            </li>
+            <li>
+              <a href="#portfolio" class="nav-link" data-i18n="portfolio"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="nav-link" data-i18n="contact"
+                >Contact</a
+              >
+            </li>
+            <li><a href="login.html" data-i18n="admin">Admin</a></li>
+          </ul>
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <button class="lang-btn" data-lang="ar">AR</button>
+          </div>
+          <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="container">
+          <div class="hero-logo">
+            <img
+              src="images/he-logo.svg"
+              alt="HE Logo"
+              onerror="this.style.display = 'none'"
+            />
+          </div>
+          <h1 data-i18n="heroTitle">Professional Electrical Solutions</h1>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">
+            Powering your future with excellence and innovation
+          </p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary" data-i18n="contactUs"
+              >Contact Us</a
+            >
+            <a
+              href="#services"
+              class="btn btn-secondary"
+              data-i18n="ourServices"
+              >Our Services</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="page-section about-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="aboutTitle">
+          About hijo Electricity
+        </h2>
+        <div class="about-content">
+          <p class="about-intro" data-i18n="aboutDesc">
+            hijo Electricity is a leading provider of professional electrical
+            services, delivering high-quality solutions for residential,
+            commercial, and industrial projects. With years of experience and a
+            commitment to excellence, we power your projects with innovation and
+            reliability.
+          </p>
+
+          <p class="about-text" data-i18n="aboutText">
+            Our team of certified electricians and engineers ensures that every
+            project meets the highest safety standards and quality benchmarks.
+            We combine technical expertise with exceptional customer service to
+            deliver results that exceed expectations.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3 data-i18n="expertTeam">Expert Team</h3>
+            <p data-i18n="expertTeamDesc">
+              Certified professionals with extensive experience
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3 data-i18n="qualityService">Quality Service</h3>
+            <p data-i18n="qualityServiceDesc">
+              Guaranteed excellence in every project
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
+            <h3 data-i18n="modernSolutions">Modern Solutions</h3>
+            <p data-i18n="modernSolutionsDesc">
+              Latest technology and innovative approaches
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="page-section services-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="servicesTitle">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3 data-i18n="residentialServices">Residential Services</h3>
+            <p data-i18n="residentialDesc">
+              Connecting and linking electricity distribution stations to the
+              public electricity grid for neighborhoods and residential
+              buildings.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3 data-i18n="commercialServices">Commercial Services</h3>
+            <p data-i18n="commercialDesc">
+              Building and upgrading the infrastructure for electrical
+              connections in cities while ensuring efficiency and safety and in
+              accordance with the required standards and specifications.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏭</div>
+            <h3 data-i18n="industrialServices">Industrial Services</h3>
+            <p data-i18n="industrialDesc">
+              Connecting power stations to industrial facilities and warehouses
+              and linking them to the public electricity grid.
+            </p>
+          </div>
+        </div>
+
+        <div class="additional-services">
+          <h3 data-i18n="additionalServices">Additional Services</h3>
+          <div class="services-grid">
+            <div class="service-card small">
+              <div class="service-icon">🔌</div>
+              <h4 data-i18n="electricalInstallation">
+                Electrical Installation
+              </h4>
+            </div>
+            <div class="service-card small">
+              <div class="service-icon">💡</div>
+              <h4 data-i18n="lightingSolutions">Lighting Solutions</h4>
+            </div>
+            <div class="service-card small">
+              <div class="service-icon">⚡</div>
+              <h4 data-i18n="panelUpgrades">Panel Upgrades</h4>
+            </div>
+            <div class="service-card small">
+              <div class="service-icon">🔧</div>
+              <h4 data-i18n="maintenance">Maintenance</h4>
+            </div>
+            <div class="service-card small">
+              <div class="service-icon">🛡️</div>
+              <h4 data-i18n="safetyInspection">Safety Inspection</h4>
+            </div>
+            <div class="service-card small">
+              <div class="service-icon">⚙️</div>
+              <h4 data-i18n="consultation">Consultation</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="page-section portfolio-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="portfolioTitle">Our Work</h2>
+        <p class="section-subtitle">
+          Explore some of our recent projects and see the quality of work we
+          deliver.
+        </p>
+        <div id="loading" class="loading">Loading projects...</div>
+        <div id="projects-grid" class="projects-grid"></div>
+        <div id="no-projects" class="no-projects" style="display: none">
+          <p>No projects available at the moment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="page-section contact-section">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contactTitle">Get In Touch</h2>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <div class="info-item">
+              <div class="info-icon">📧</div>
+              <div class="info-content">
+                <h3>Email</h3>
+                <p>hijoelectric@gmail.com</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📱</div>
+              <div class="info-content">
+                <h3>Phone</h3>
+                <p>00966545787952</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div class="info-content">
+                <h3>Address</h3>
+                <p>123 Electrical Street, Power City, PC 12345</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">🕐</div>
+              <div class="info-content">
+                <h3>Working Hours</h3>
+                <p>Monday - Friday: 8:00 AM - 6:00 PM<br />Emergency: 24/7</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  data-i18n-placeholder="name"
+                  placeholder="Name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  data-i18n-placeholder="email"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  data-i18n-placeholder="phone"
+                  placeholder="Phone"
+                />
+              </div>
+              <div class="form-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  data-i18n-placeholder="message"
+                  placeholder="Message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="submitBtn"
+                data-i18n="send"
+              >
+                Send Message
+              </button>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="images/he-logo.svg"
+                alt="hijo Electricity"
+                onerror="this.style.display = 'none'"
+              />
+              <h3>hijo Electricity</h3>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="#home" data-i18n="home">Home</a></li>
+              <li><a href="#about" data-i18n="about">About</a></li>
+              <li><a href="#services" data-i18n="services">Services</a></li>
+              <li><a href="#portfolio" data-i18n="portfolio">Portfolio</a></li>
+              <li><a href="#contact" data-i18n="contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <ul class="footer-contact">
+              <li>hijoelectric@gmail.com</li>
+              <li>00966545787952</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 hijo Electricity. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact-form.js"></script>
+  </body>
+</html>

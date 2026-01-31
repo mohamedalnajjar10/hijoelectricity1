@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management - hijo Electricity</title>
+    <link rel="icon" href="images/he-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="admin-header">
+        <div class="container">
+            <a href="index.html">← Back to Main Site</a>
+            <button id="logoutBtn" class="btn btn-danger">Logout</button>
+        </div>
+    </div>
+
+    <section class="admin-section">
+        <div class="container">
+            <div class="admin-title">
+                <h1>Project Management</h1>
+                <p>Manage your portfolio projects</p>
+            </div>
+
+            <button id="addProjectBtn" class="btn btn-primary">+ Add New Project</button>
+
+            <div id="loading" class="loading">Loading projects...</div>
+            <div id="projectsList" class="admin-projects-list"></div>
+            <div id="noProjects" class="no-projects" style="display: none;">
+                <p>No projects yet. Click "Add New Project" to create one.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Project</h2>
+                <span class="modal-close">&times;</span>
+            </div>
+            <form id="projectForm" class="project-form">
+                <div class="form-group">
+                    <label for="titleEn">Title (English) *</label>
+                    <input type="text" id="titleEn" name="titleEn" required>
+                </div>
+                <div class="form-group">
+                    <label for="titleAr">Title (Arabic)</label>
+                    <input type="text" id="titleAr" name="titleAr">
+                </div>
+                <div class="form-group">
+                    <label for="descriptionEn">Description (English) *</label>
+                    <textarea id="descriptionEn" name="descriptionEn" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="descriptionAr">Description (Arabic)</label>
+                    <textarea id="descriptionAr" name="descriptionAr" rows="4"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image *</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                    <img id="imagePreview" class="image-preview" style="display: none;">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">Save Project</button>
+                </div>
+            </form>
+            <div id="formMessage" class="form-message"></div>
+        </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
