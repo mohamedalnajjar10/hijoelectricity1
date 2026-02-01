@@ -179,20 +179,28 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 // Sync database and start server
-connection
-  .sync({ force: false })
-  .then(() => {
-    console.log("Database synchronized");
+if (require.main === module) {
+  connection
+    .sync({ force: false })
+    .then(() => {
+      console.log("Database synchronized");
 
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-      console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+      app.listen(PORT, () => {
+        console.log(`Server running on http://localhost:${PORT}`);
+        console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
+      });
+    })
+    .catch((err) => {
+      console.error("Database sync failed:", err.message);
+      process.exit(1);
     });
-  })
-  .catch((err) => {
-    console.error("Database sync failed:", err.message);
-    process.exit(1);
-  });
+} else {
+  // Serverless environment (Vercel)
+  // No need to listen on port, just export app
+  console.log(
+    "Running in serverless mode - Database sync skipped for performance",
+  );
+}
 
 // ========== Process Event Handlers ==========
 
