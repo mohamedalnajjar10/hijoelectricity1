@@ -100,6 +100,7 @@ app.use(
   express.static(path.join(__dirname, "../frontend"), {
     maxAge: process.env.NODE_ENV === "production" ? "1d" : 0,
     etag: true,
+    extensions: ["html"],
   }),
 );
 
