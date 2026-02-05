@@ -28,11 +28,11 @@ app.use(
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
         imgSrc: ["'self'", "data:", "blob:"],
         scriptSrc: ["'self'", "'unsafe-inline'"],
-        connectSrc: ["'self'"]
-      }
+        connectSrc: ["'self'"],
+      },
     },
-    crossOriginEmbedderPolicy: false
-  })
+    crossOriginEmbedderPolicy: false,
+  }),
 );
 
 // CORS configuration
@@ -43,7 +43,7 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
-  maxAge: 86400
+  maxAge: 86400,
 };
 app.use(cors(corsOptions));
 
@@ -55,8 +55,8 @@ app.use(
     filter: (req, res) => {
       if (req.headers["x-no-compression"]) return false;
       return compression.filter(req, res);
-    }
-  })
+    },
+  }),
 );
 
 // Parsing
@@ -69,14 +69,20 @@ app.use(sanitize);
 // Rate limit
 app.use("/api", generalLimiter);
 
-// Static uploads (مهم: على Vercel الملفات المكتوبة وقت التشغيل لا تُحفظ دائمًا)
-// لكن عرض ملفات موجودة داخل repo يعمل.
+// Static files - Frontend (CSS, JS, images)
+app.use(
+  express.static(path.join(__dirname, "../frontend"), {
+    maxAge: "1d",
+    etag: true,
+  }),
+);
+
 app.use(
   "/uploads",
   express.static(path.join(__dirname, "uploads"), {
     maxAge: "1d",
-    etag: true
-  })
+    etag: true,
+  }),
 );
 
 // API Routes
@@ -84,8 +90,6 @@ app.use("/api/auth", authRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/contact", contactRoutes);
 
-// Root route (اختياري محليًا)
-// على Vercel سنخدم الـ frontend عبر rewrites، لكن هذا لا يضر.
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
 });
@@ -110,12 +114,16 @@ app.use((err, req, res, next) => {
     return res.status(400).json({
       success: false,
       message: "Validation failed",
-      errors: err.array()
+      errors: err.array(),
     });
   }
 
   if (err.name === "SequelizeValidationError") {
-    return errorResponse(res, err.errors[0]?.message || "Validation error", 400);
+    return errorResponse(
+      res,
+      err.errors[0]?.message || "Validation error",
+      400,
+    );
   }
 
   if (err.name === "SequelizeUniqueConstraintError") {
@@ -128,9 +136,11 @@ app.use((err, req, res, next) => {
 
   return errorResponse(
     res,
-    process.env.NODE_ENV === "development" ? err.message : "Internal server error",
+    process.env.NODE_ENV === "development"
+      ? err.message
+      : "Internal server error",
     err.status || 500,
-    process.env.NODE_ENV === "development" ? err : null
+    process.env.NODE_ENV === "development" ? err : null,
   );
 });
 
